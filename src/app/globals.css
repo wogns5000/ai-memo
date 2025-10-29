@@ -1,0 +1,217 @@
+@import 'tailwindcss';
+@import '@uiw/react-md-editor/markdown-editor.css';
+@import '@uiw/react-markdown-preview/markdown.css';
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Markdown 스타일 개선 */
+.wmde-markdown {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+/* 강조 스타일 */
+.wmde-markdown strong,
+.wmde-markdown b {
+  font-weight: 600 !important;
+}
+
+.wmde-markdown em,
+.wmde-markdown i {
+  font-style: italic !important;
+}
+
+.wmde-markdown strong em,
+.wmde-markdown em strong {
+  font-weight: 600 !important;
+  font-style: italic !important;
+}
+
+/* Tailwind reset 덮어쓰기 - 리스트 스타일 강제 적용 */
+.wmde-markdown ul,
+.wmde-markdown ol {
+  list-style: revert !important;
+  padding-left: 2em !important;
+  margin-bottom: 16px;
+  margin-left: 0;
+}
+
+.wmde-markdown ul {
+  list-style-type: disc !important;
+}
+
+.wmde-markdown ol {
+  list-style-type: decimal !important;
+}
+
+.wmde-markdown ul ul {
+  list-style-type: circle !important;
+}
+
+.wmde-markdown ul ul ul {
+  list-style-type: square !important;
+}
+
+.wmde-markdown li {
+  margin-top: 0.25em;
+  display: list-item !important;
+  margin-left: 0;
+}
+
+.wmde-markdown li > p {
+  margin-bottom: 0;
+}
+
+.wmde-markdown h1,
+.wmde-markdown h2,
+.wmde-markdown h3,
+.wmde-markdown h4,
+.wmde-markdown h5,
+.wmde-markdown h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.wmde-markdown h1 {
+  font-size: 2em;
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 0.3em;
+}
+
+.wmde-markdown h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 0.3em;
+}
+
+.wmde-markdown h3 {
+  font-size: 1.25em;
+}
+
+.wmde-markdown p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.wmde-markdown code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(175, 184, 193, 0.2);
+  border-radius: 6px;
+}
+
+.wmde-markdown pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.wmde-markdown pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.wmde-markdown blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
+  margin: 0 0 16px 0;
+}
+
+.wmde-markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.wmde-markdown table th,
+.wmde-markdown table td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.wmde-markdown table th {
+  font-weight: 600;
+  background-color: #f6f8fa;
+}
+
+.wmde-markdown table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.wmde-markdown table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.wmde-markdown img {
+  max-width: 100%;
+  box-sizing: content-box;
+}
+
+.wmde-markdown a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.wmde-markdown a:hover {
+  text-decoration: underline;
+}
+
+/* MDEditor 컨테이너 스타일 */
+.w-md-editor {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.w-md-editor-toolbar {
+  background-color: #f6f8fa;
+  border-bottom: 1px solid #e1e4e8;
+}
