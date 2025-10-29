@@ -4,8 +4,19 @@ import { createServerClient } from '@/utils/supabase/server'
 import { Memo, MemoFormData } from '@/types/memo'
 import { revalidatePath } from 'next/cache'
 
+// 데이터베이스 행 타입 정의
+interface DbMemoRow {
+  id: string
+  title: string
+  content: string
+  category: string
+  tags: string[] | null
+  created_at: string
+  updated_at: string
+}
+
 // 데이터베이스 행을 Memo 타입으로 변환
-function dbRowToMemo(row: any): Memo {
+function dbRowToMemo(row: DbMemoRow): Memo {
   return {
     id: row.id,
     title: row.title,
